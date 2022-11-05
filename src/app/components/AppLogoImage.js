@@ -2,6 +2,9 @@ import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 
 const AppLogoImage = (props) => {
+  var logoH = props.logoH ? props.logoH : 45
+  var logoW = props.logoW ? props.logoW : 190
+  var logo2 = props.logo2 ? props.logo2 : 250
     const styles = StyleSheet.create({
         topView: {
             width: '100%',
@@ -17,11 +20,11 @@ const AppLogoImage = (props) => {
     // <View style={{height:props.size}}>
     <View style={styles.topView}>
     <Image
-      style={{width: 190, height: 45, }}
+      style={{width: logoW, height: logoH, }}
       source={require('../../../assets/logo.png')}
     />
     <Image
-      style={{width: 250, height: 250}}
+      style={{width:logo2, height: logo2,}}
       source={require('../../../assets/logo2.png')}
     />
   {/* </View> */}

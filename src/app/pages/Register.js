@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -35,28 +36,30 @@ export default class Register extends Component {
           <Text style={styles.title}>Enter your mobile number</Text>
           <Text style={styles.subTitle}>We will send you a OTP to verify.</Text>
         </View>
-        <View style={styles.contentView}>
-          <View style={styles.inputContainer}>
-            <TextInput style={styles.countryCode} value={'+91'} />
-            <TextInput
-              style={styles.mobileNumber}
-              maxLength={10}
-              keyboardType={'numeric'}
-              placeholder={'Mobile number'}
-              placeholderTextColor={COLOR.borderColor}
-              onChangeText={value => this.handleMobile(value)}
-            />
+        <ScrollView style={styles.contentView}>
+          <View style={styles.scrollView}>
+            <View style={styles.inputContainer}>
+              <TextInput style={styles.countryCode} value={'+91'} />
+              <TextInput
+                style={styles.mobileNumber}
+                maxLength={10}
+                keyboardType={'numeric'}
+                placeholder={'Mobile number'}
+                placeholderTextColor={COLOR.borderColor}
+                onChangeText={value => this.handleMobile(value)}
+              />
+            </View>
+            <TouchableHighlight
+              style={styles.button}
+              onPress={() =>
+                this.props.navigation.navigate('Otp', {
+                  mobileNumber: this.state.mobileNumber,
+                })
+              }>
+              <Text style={styles.buttonText}>Continue</Text>
+            </TouchableHighlight>
           </View>
-          <TouchableHighlight
-            style={styles.button}
-            onPress={() =>
-              this.props.navigation.navigate('Otp', {
-                mobileNumber: this.state.mobileNumber,
-              })
-            }>
-            <Text style={styles.buttonText}>Continue</Text>
-          </TouchableHighlight>
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -96,6 +99,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     padding: 20,
+   
+  },
+  scrollView:{
     alignItems: 'center',
     justifyContent: 'center',
   },

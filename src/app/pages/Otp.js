@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
+import CountDown from 'react-native-countdown-component';
+
 import {
   Image,
   StyleSheet,
@@ -13,6 +15,13 @@ import AppLogoImage from '../components/AppLogoImage';
 import {COLOR} from '../constant/Color';
 
 export default class Otp extends Component {
+  constructor(){
+    super()
+    this.state={
+      countDown: true,
+      count:1
+    }
+  }
   render() {
     number = this.props.route.params.mobileNumber
       ? this.props.route.params.mobileNumber
@@ -35,9 +44,13 @@ export default class Otp extends Component {
                 backgroundColor: COLOR.textFieldColor,
                 borderRadius: 5,
                 borderColor: COLOR.borderColor,
+                justifyContent:'center',
+                fontSize:22,
+                fontWeight:'bold',
+                color:COLOR.buttonColor,
               }}
               keyboardType={'phone-pad'}
-              // onCodeFilled={() => this.props.navigation.navigate('Register')}
+              onCodeFilled={() => this.props.navigation.navigate('StudentDetails')}
 
             //   onCodeFilled = {(code => {
             //     console.log(`Code is ${code}, you are good to go!`)
@@ -45,10 +58,27 @@ export default class Otp extends Component {
 
             />
           </View>
-          <TouchableHighlight style={styles.button}>
+          <TouchableHighlight style={this.state.countDown ? styles.disabledButton : styles.button} onPress={() => this.setState({
+            count:1,
+            countDown:true
+          })}>
             <Text style={styles.buttonText}>Resend OTP</Text>
           </TouchableHighlight>
-          <Text style={styles.otpResendTime}>Resend after 28s</Text>
+          <View  style={styles.otpResendTimeContainer}>
+          <Text style={styles.otpResendTime}>Resend after</Text>
+          <CountDown
+        until={60 * this.state.count}
+        size={11}
+        onFinish={() => this.setState({
+          countDown:false
+        })}
+        digitStyle={{backgroundColor: COLOR.mainColor}}
+        digitTxtStyle={{color: COLOR.borderColor}}
+        timeToShow={['S']}
+        timeLabels={{ s: ''}}
+      />
+      <Text style={styles.otpResendTime}>sec</Text>
+      </View>
           <View style={styles.contactUsContainer}>
             <Icon name="call" size={17} color={COLOR.buttonColor} />
             <TouchableHighlight style={styles.contactUs}>
@@ -113,9 +143,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  disabledButton: {
+    width: '93%',
+    marginTop: 15,
+    height: 52,
+    backgroundColor: COLOR.textFieldColor,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   buttonText: {
     fontSize: 16,
     color: 'white',
+  },
+  otpResendTimeContainer:{
+    flexDirection:'row'
   },
   otpResendTime: {
     fontSize: 12,
