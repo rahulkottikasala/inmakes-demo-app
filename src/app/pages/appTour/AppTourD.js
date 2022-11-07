@@ -17,7 +17,7 @@ export default class AppTourD extends Component {
         />
         <View style={styles.buttonContainer}> 
           <View style={styles.buttonOutline}>
-            <TouchableHighlight style={styles.button} onPress={()=> this.props.navigation.navigate('MyTabs')}>
+            <TouchableHighlight style={styles.button} onPress={()=> this.props.navigation.navigate('DrawerNav')}>
               <Icon name="arrow-forward" size={22} color="white" />
             </TouchableHighlight>
           </View>

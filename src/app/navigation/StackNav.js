@@ -7,6 +7,7 @@ import Otp from '../pages/Otp';
 import Register from '../pages/Register';
 import SchoolBoard from '../pages/SchoolBoard';
 import StudentDetails from '../pages/StudentDetails';
+import DrawerNav from './DrawerNav';
 import TabNav from './TabNav';
 
 
@@ -52,8 +53,8 @@ const StackNav = () => {
           options={{headerShown: false}}
         />
           <Stack.Screen
-          name="MyTabs"
-          component={TabNav}
+          name="DrawerNav"
+          component={DrawerNav}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

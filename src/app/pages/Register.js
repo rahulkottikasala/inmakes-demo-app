@@ -35,7 +35,7 @@ export default class Register extends Component {
           />
         </View>
         <View style={styles.titleView}>
-          <Text style={styles.title} onPress={() =>this.props.navigation.navigate('MyTabs')}>Enter your mobile number</Text>
+          <Text style={styles.title} onPress={() =>this.props.navigation.navigate('DrawerNav')}>Enter your mobile number</Text>
           <Text style={styles.subTitle}>We will send you a OTP to verify.</Text>
         </View>
         <ScrollView style={styles.contentView}>

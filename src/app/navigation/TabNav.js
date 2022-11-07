@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { COLOR } from '../constant/Color';
 import Contact from '../pages/tabBar/Contanct';
 import Exams from '../pages/tabBar/Exams';
+import HomePage from '../pages/tabBar/HomePage';
 import Profile from '../pages/tabBar/Profile';
 import Recents from '../pages/tabBar/Recents';
 import DrawerNav from './DrawerNav';
@@ -27,7 +28,7 @@ const TabNav =() => {
         }
       })}
       >
-        <Tab.Screen name="Home" component={DrawerNav}  options={{headerShown:false}}/>
+        <Tab.Screen name="Home" component={HomePage}  options={{headerShown:false}}/>
         <Tab.Screen name="Recents" component={Recents}  options={{headerShown:false}}/>
         <Tab.Screen name="Exam" component={Exams}  options={{headerShown:false}}/>
         <Tab.Screen name="Profile" component={Profile}  options={{headerShown:false}}/>
