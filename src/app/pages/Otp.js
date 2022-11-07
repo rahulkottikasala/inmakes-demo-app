@@ -16,7 +16,7 @@ export default class Otp extends Component {
   constructor(){
     super()
     this.state={
-      countDown: true,
+      countDown: false,
       count:1,
     }
   }
@@ -57,15 +57,17 @@ export default class Otp extends Component {
 
             />
           </View>
-          <TouchableHighlight style={this.state.countDown ? styles.disabledButton : styles.button} onPress={() => this.setState({
-            count:1,
-            countDown:true
-          })}>
+          <TouchableHighlight style={this.state.countDown ? styles.disabledButton : styles.button}
+          //  onPress={() => this.setState({
+          //   count:1,
+          //   countDown:true
+          // })}
+          >
             <Text style={styles.buttonText}>Resend OTP</Text>
           </TouchableHighlight>
           <View  style={styles.otpResendTimeContainer}>
           <Text style={styles.otpResendTime}>Resend after</Text>
-          <CountDown
+          {/* <CountDown
         until={60 * this.state.count}
         size={11}
         onFinish={() => this.setState({
@@ -75,8 +77,8 @@ export default class Otp extends Component {
         digitTxtStyle={{color: COLOR.borderColor}}
         timeToShow={['S']}
         timeLabels={{ s: ''}}
-      />
-      <Text style={styles.otpResendTime}>sec</Text>
+      /> */}
+      <Text style={styles.otpResendTime}>28s</Text>
       </View>
           <View style={styles.contactUsContainer}>
             <Icon name="call" size={17} color={COLOR.buttonColor} />
