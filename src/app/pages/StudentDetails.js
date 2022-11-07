@@ -19,7 +19,7 @@ export default class StudentDetails extends Component {
     };
   }
 
-  handleMobile(value) {
+  handleMobile =(value) => {
     this.setState({
       mobileNumber: value,
     });

@@ -34,9 +34,8 @@ export default class SchoolBoard extends Component {
         <ScrollView style={styles.contentView}>
           <View style={styles.scrollView}>
             <View style={styles.inputContainer}>
-
               <SelectDropdown
-                data={['CBSE','STATE']}
+                data={['CBSE', 'STATE']}
                 onSelect={(selectedItem, index) => console.log(selectedItem)}
                 buttonTextAfterSelection={(selectedItem, index) => {
                   // text represented after item is selected
@@ -48,14 +47,24 @@ export default class SchoolBoard extends Component {
                   // if data array is an array of objects then return item.property to represent item in dropdown
                   return item;
                 }}
-
-                buttonStyle={{backgroundColor:COLOR.textFieldColor, width:'100%', marginBottom:10, borderRadius:5,flexDirection:'column', alignItems:'flex-start',paddingTop:12}}
-                buttonTextStyle={{ color:COLOR.borderColor, fontSize:16}}
-                defaultButtonText='Select state(Select)' 
-                dropdownStyle={{backgroundColor:COLOR.buttonColor,borderRadius:10,}}
+                buttonStyle={{
+                  backgroundColor: COLOR.textFieldColor,
+                  width: '100%',
+                  marginBottom: 10,
+                  borderRadius: 5,
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  paddingTop: 12,
+                }}
+                buttonTextStyle={{color: COLOR.borderColor, fontSize: 16}}
+                defaultButtonText="Select state(Select)"
+                dropdownStyle={{
+                  backgroundColor: COLOR.buttonColor,
+                  borderRadius: 10,
+                }}
               />
               <SelectDropdown
-                data={['8th','9th', '10th', '+1', '+2']}
+                data={['8th', '9th', '10th', '+1', '+2']}
                 onSelect={(selectedItem, index) => console.log(selectedItem)}
                 buttonTextAfterSelection={(selectedItem, index) => {
                   // text represented after item is selected
@@ -67,15 +76,27 @@ export default class SchoolBoard extends Component {
                   // if data array is an array of objects then return item.property to represent item in dropdown
                   return item;
                 }}
-
-                buttonStyle={{backgroundColor:COLOR.textFieldColor, width:'100%', marginBottom:10, borderRadius:5,flexDirection:'column', alignItems:'flex-start',paddingTop:12}}
-                buttonTextStyle={{ color:COLOR.borderColor, fontSize:16}}
-                defaultButtonText='Select state(Select)' 
-                dropdownStyle={{backgroundColor:COLOR.buttonColor,borderRadius:10,}}
+                buttonStyle={{
+                  backgroundColor: COLOR.textFieldColor,
+                  width: '100%',
+                  marginBottom: 10,
+                  borderRadius: 5,
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  paddingTop: 12,
+                }}
+                buttonTextStyle={{color: COLOR.borderColor, fontSize: 16}}
+                defaultButtonText="Select state(Select)"
+                dropdownStyle={{
+                  backgroundColor: COLOR.buttonColor,
+                  borderRadius: 10,
+                }}
               />
-             
             </View>
-            <TouchableHighlight style={styles.button}>
+            <TouchableHighlight
+              style={styles.button}
+               onPress={() => this.props.navigation.navigate('AppTourA')}
+            >
               <Text style={styles.buttonText}>Continue</Text>
             </TouchableHighlight>
           </View>
@@ -90,7 +111,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  
+
   titleView: {
     width: '100%',
     height: '10%',

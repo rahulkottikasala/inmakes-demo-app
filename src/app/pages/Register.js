@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
   Image,
-  ScrollView,
+  ScrollView,  
   StyleSheet,
   Text,
   TextInput,
@@ -15,13 +15,15 @@ export default class Register extends Component {
     super();
     this.state = {
       mobileNumber: null,
-    };
+        };
   }
 
-  handleMobile(value) {
+  handleMobile = (value)=> {
+  console.log(value.length);
     this.setState({
       mobileNumber: value,
     });
+    
   }
   render() {
     return (
@@ -33,7 +35,7 @@ export default class Register extends Component {
           />
         </View>
         <View style={styles.titleView}>
-          <Text style={styles.title}>Enter your mobile number</Text>
+          <Text style={styles.title} onPress={() =>this.props.navigation.navigate('MyTabs')}>Enter your mobile number</Text>
           <Text style={styles.subTitle}>We will send you a OTP to verify.</Text>
         </View>
         <ScrollView style={styles.contentView}>
@@ -46,15 +48,16 @@ export default class Register extends Component {
                 keyboardType={'numeric'}
                 placeholder={'Mobile number'}
                 placeholderTextColor={COLOR.borderColor}
-                onChangeText={value => this.handleMobile(value)}
+                onChangeText={(value) => this.handleMobile(value)}
               />
             </View>
             <TouchableHighlight
               style={styles.button}
               onPress={() =>
                 this.props.navigation.navigate('Otp', {
-                  mobileNumber: this.state.mobileNumber,
+                  mobileNumber: this.state.mobileNumber
                 })
+                
               }>
               <Text style={styles.buttonText}>Continue</Text>
             </TouchableHighlight>
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     fontSize: 16,
+    color:COLOR.lightGrey
   },
   contentView: {
     width: '100%',

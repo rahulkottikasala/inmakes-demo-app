@@ -3,10 +3,8 @@ import OTPInputView from '@twotalltotems/react-native-otp-input';
 import CountDown from 'react-native-countdown-component';
 
 import {
-  Image,
   StyleSheet,
   Text,
-  TextInput,
   TouchableHighlight,
   View,
 } from 'react-native';
@@ -19,13 +17,14 @@ export default class Otp extends Component {
     super()
     this.state={
       countDown: true,
-      count:1
+      count:1,
     }
   }
   render() {
-    number = this.props.route.params.mobileNumber
+    mobileNumber = this.props.route.params.mobileNumber
       ? this.props.route.params.mobileNumber
       : '0000000000';
+      
     return (
       <View style={StyleSheet.container}>
         <AppLogoImage size={'53%'} />
@@ -34,12 +33,12 @@ export default class Otp extends Component {
           <Text style={styles.subTitle}>
             Please type the verification code send to
           </Text>
-          <Text style={styles.verifiedNumber}>+91 {number} </Text>
+          <Text style={styles.verifiedNumber}>+91 {mobileNumber} </Text>
         </View>
         <View style={styles.contentView}>
           <View style={styles.inputContainer}>
             <OTPInputView
-              pinCount={6}
+              pinCount={6} 
               codeInputFieldStyle={{
                 backgroundColor: COLOR.textFieldColor,
                 borderRadius: 5,
