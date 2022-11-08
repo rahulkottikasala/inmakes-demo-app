@@ -12,4 +12,4 @@ const DrawerNav =()=> {
       </Drawer.Navigator>
     );
   }
-  export default  DrawerNav
+  export default  DrawerNav;
